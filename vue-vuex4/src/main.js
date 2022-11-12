@@ -7,6 +7,7 @@ const store = createStore({
   state() {
     return {
       counter: 0,
+      history: [0],
     };
   },
 
@@ -15,9 +16,11 @@ const store = createStore({
     // payload - любое значение, которое мы передаем в мутацию
     addToCounter(state, payload) {
       state.counter = state.counter + payload;
+      state.history.push(state.counter);
     },
     decreaseCounter(state, payload) {
       state.counter = state.counter - payload;
+      state.history.push(state.counter);
     },
   },
 
@@ -29,6 +32,19 @@ const store = createStore({
       );
       // context.commit - вызов мутации
       context.commit("addToCounter", res.data);
+    },
+  },
+  getters: {
+    // getters - это средство, которое позволяет получить данные из state основынные на другой логике
+    // например, мы можем получить данные из state и отфильтровать их
+    activeIndexes: (state) => (payload) => {
+      let indexes = [];
+      state.history.forEach((number, index) => {
+        if (number === payload) {
+          indexes.push(index);
+        }
+      });
+      return indexes;
     },
   },
 });

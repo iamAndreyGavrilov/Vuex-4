@@ -1,14 +1,16 @@
 <template>
   <div>
     <ComponentFour />
+    <HistoryNumbers />
   </div>
 </template>
 
 <script>
-import ComponentFour from './ComponentFour.vue';
+import ComponentFour from "./ComponentFour.vue";
+import HistoryNumbers from "./HistoryNumbers.vue";
 export default {
   name: "ComponentThree",
-  components: { ComponentFour },
+  components: { ComponentFour, HistoryNumbers },
 };
 </script>
 

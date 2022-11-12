@@ -52,7 +52,7 @@ input {
   border-radius: 0.5rem;
   width: auto;
   background-color: #41b983;
-  margin-top: 1rem;
+  margin-top: 2rem;
   cursor: pointer;
   color: #fff;
 }
