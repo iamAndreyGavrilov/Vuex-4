@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Vuex Counter</h1>
-    <h2 class="counter">0</h2>
+    <h2 class="counter">{{ counter }}</h2>
     <button>-</button>
     <input type="number" v-model="value" />
     <button>+</button>
@@ -9,12 +9,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "VuexCounter",
   data() {
     return {
       value: 1,
     };
+  },
+  computed: {
+    ...mapState(["counter"]),
   },
 };
 </script>
