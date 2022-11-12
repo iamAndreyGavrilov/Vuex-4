@@ -2,14 +2,14 @@
   <div>
     <h1>Vuex Counter</h1>
     <h2 class="counter">{{ counter }}</h2>
-    <button>-</button>
+    <button @click="decreaseCounter(value)">-</button>
     <input type="number" v-model="value" />
-    <button>+</button>
+    <button @click="addToCounter(value)">+</button>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "VuexCounter",
@@ -20,6 +20,9 @@ export default {
   },
   computed: {
     ...mapState(["counter"]),
+  },
+  methods: {
+    ...mapMutations(["addToCounter", "decreaseCounter"]),
   },
 };
 </script>

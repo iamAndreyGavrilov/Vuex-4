@@ -8,6 +8,15 @@ const store = createStore({
       counter: 0,
     };
   },
+  mutations: {
+    //payload - любое значение, которое мы передаем в мутацию
+    addToCounter(state, payload) {
+      state.counter = state.counter + payload;
+    },
+    decreaseCounter(state, payload) {
+      state.counter = state.counter - payload;
+    },
+  },
 });
 
 const app = createApp(App);
